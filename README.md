@@ -10,5 +10,6 @@ create table personal (
     address varchar(500));
     
     Hi Vijay was here. And Naik fokto
+    Vijay chedi
 
 

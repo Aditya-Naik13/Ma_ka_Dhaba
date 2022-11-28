@@ -8,5 +8,7 @@ create table personal (
     name varchar(255),
     password varchar(255),
     address varchar(500));
+    
+    Hi Vijay was here. And Naik fokto
 
 

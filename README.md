@@ -11,5 +11,6 @@ create table personal (
     
     Hi Vijay was here. And Naik fokto
     Vijay chedi
+    Chonya Ross
 
 

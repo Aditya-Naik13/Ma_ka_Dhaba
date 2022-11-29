@@ -167,7 +167,7 @@ public class login extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(22, 0, 0, 0);
         getContentPane().add(jButton2, gridBagConstraints);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/brooke-lark-jUPOXXRNdcA-unsplash(1)_01.jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login_page.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

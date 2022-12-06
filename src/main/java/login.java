@@ -166,33 +166,19 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       String UID,Pass;
-       UID = jTextField1.getText();
-       Pass = jPasswordField1.getText();
-       if(UID.isEmpty()){
-       JOptionPane.showMessageDialog(null, "Please Enter Username");
-       }
-       else if(Pass.isEmpty()){
-       JOptionPane.showMessageDialog(null, "Please Enter Password");
-       }
-       else{
-        try{
-           Class.forName("com.mysql.jdbc.Driver");
-           Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Ma_ka_Dhaba","root","kjpkeyyt#1DBMS");
-           Statement stmt = conn.createStatement();
-           String sql = "select * from personal where username = "+UID+"and password = "+Pass+";";
-       }catch (Exception e){
-       JOptionPane.showMessageDialog(null, e);
-       }
-       }
+      
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-   
-    }
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new login().setVisible(true);
+            }
+        });
+        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -204,4 +190,5 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
-}
+
+                }

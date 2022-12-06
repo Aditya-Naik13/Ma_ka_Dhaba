@@ -37,8 +37,8 @@ public class register extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -48,7 +48,6 @@ public class register extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Address");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -59,7 +58,6 @@ public class register extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(23, 520, 0, 0);
         getContentPane().add(jLabel2, gridBagConstraints);
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Username");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -71,7 +69,6 @@ public class register extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(23, 520, 0, 0);
         getContentPane().add(jLabel3, gridBagConstraints);
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Name");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -81,7 +78,6 @@ public class register extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(100, 520, 0, 0);
         getContentPane().add(jLabel4, gridBagConstraints);
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Password");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -93,7 +89,6 @@ public class register extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(23, 520, 0, 0);
         getContentPane().add(jLabel5, gridBagConstraints);
 
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Confirm Password");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -104,17 +99,6 @@ public class register extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(23, 520, 0, 0);
         getContentPane().add(jLabel6, gridBagConstraints);
-
-        jTextField1.setBackground(new java.awt.Color(51, 51, 51));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 66;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(90, 50, 0, 0);
-        getContentPane().add(jTextField1, gridBagConstraints);
 
         jTextField2.setBackground(new java.awt.Color(51, 51, 51));
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
@@ -131,6 +115,17 @@ public class register extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(13, 50, 0, 0);
         getContentPane().add(jTextField2, gridBagConstraints);
+
+        jTextField1.setBackground(new java.awt.Color(51, 51, 51));
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 66;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(90, 50, 0, 0);
+        getContentPane().add(jTextField1, gridBagConstraints);
 
         jTextField3.setBackground(new java.awt.Color(51, 51, 51));
         jTextField3.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,9 +149,7 @@ public class register extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(13, 50, 0, 0);
         getContentPane().add(jTextField4, gridBagConstraints);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Inter", 1, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Register");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,49 +205,32 @@ public class register extends javax.swing.JFrame {
        else if(Pass.isEmpty()){
        JOptionPane.showMessageDialog(null, "Please Enter Password");
        }
-       else{
-        try{
+       else if(Add.isEmpty()){
+       JOptionPane.showMessageDialog(null, "Please Enter Your Address");
+       }
+       else if(Name.isEmpty()){
+       JOptionPane.showMessageDialog(null, "Please Enter Your Name");
+       }
+       else if (!Pass.equals(jTextField4.getText())){
+       try{
            Class.forName("com.mysql.jdbc.Driver");
            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Ma_ka_Dhaba","root","kjpkeyyt#1DBMS");
            Statement stmt = conn.createStatement();
-           String sql = "select * from personal where username = "+UID+"and password = "+Pass+";";
+           String sql = "insert into personal (username,name,password,address) values({"+UID+","+Name+","+Pass+","+Add+");";
+           stmt.executeUpdate(sql);
        }catch (Exception e){
        JOptionPane.showMessageDialog(null, e);
        }
-       }
         login l=new login();
         l.setVisible(true);
-        dispose();        // TODO add your handling code here:
+        dispose();
+       }
+       else{
+        
+           JOptionPane.showMessageDialog(null, "Given Password does not match");// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
+    }
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new register().setVisible(true);
@@ -276,4 +252,5 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
+
 }

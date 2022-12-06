@@ -8,6 +8,8 @@
  * @author aditya
  */
 import java.sql.*;
+import javax.swing.JOptionPane;
+
 public class login extends javax.swing.JFrame {
 
     /**
@@ -42,7 +44,6 @@ public class login extends javax.swing.JFrame {
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Username");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -53,7 +54,6 @@ public class login extends javax.swing.JFrame {
         getContentPane().add(jLabel1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Password");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -96,9 +96,7 @@ public class login extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(17, 43, 0, 0);
         getContentPane().add(jPasswordField1, gridBagConstraints);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Inter", 1, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Register");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +113,6 @@ public class login extends javax.swing.JFrame {
         getContentPane().add(jButton1, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Inter", 0, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Haven't registered yet? Click here to register");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -126,9 +123,7 @@ public class login extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(127, 560, 0, 0);
         getContentPane().add(jLabel4, gridBagConstraints);
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Inter", 1, 13)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Login");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,29 +166,32 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       String UID,Pass;
+       UID = jTextField1.getText();
+       Pass = jPasswordField1.getText();
+       if(UID.isEmpty()){
+       JOptionPane.showMessageDialog(null, "Please Enter Username");
+       }
+       else if(Pass.isEmpty()){
+       JOptionPane.showMessageDialog(null, "Please Enter Password");
+       }
+       else{
         try{
-            Class.forName("oracle.jdbc.driver.OracleDriver");  
-    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");  
-    Statement stmt=con.createStatement();
-        }
-        String loginmy  = stmt.executeUpdate();
-     catch (ClassNotFoundException | SQLException e){
-             JOptionPane
-             }
+           Class.forName("com.mysql.jdbc.Driver");
+           Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Ma_ka_Dhaba","root","kjpkeyyt#1DBMS");
+           Statement stmt = conn.createStatement();
+           String sql = "select * from personal where username = "+UID+"and password = "+Pass+";";
+       }catch (Exception e){
+       JOptionPane.showMessageDialog(null, e);
+       }
+       }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[])  throws Exception {
-    Class.forName("oracle.jdbc.driver.OracleDriver");  
-    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");  
-    Statement stmt=con.createStatement();
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new login().setVisible(true);
-            }
-        });
+    public static void main(String args[]) {
+   
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

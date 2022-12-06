@@ -1,3 +1,9 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -195,7 +201,28 @@ public class register extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- login l=new login();
+ String Name,UID,Pass,Add;
+       Name = jTextField1.getText();
+       UID = jTextField2.getText();
+       Pass = jTextField3.getText();
+       Add = jTextField5.getText();
+       if(UID.isEmpty()){
+       JOptionPane.showMessageDialog(null, "Please Enter Username");
+       }
+       else if(Pass.isEmpty()){
+       JOptionPane.showMessageDialog(null, "Please Enter Password");
+       }
+       else{
+        try{
+           Class.forName("com.mysql.jdbc.Driver");
+           Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Ma_ka_Dhaba","root","kjpkeyyt#1DBMS");
+           Statement stmt = conn.createStatement();
+           String sql = "select * from personal where username = "+UID+"and password = "+Pass+";";
+       }catch (Exception e){
+       JOptionPane.showMessageDialog(null, e);
+       }
+       }
+        login l=new login();
         l.setVisible(true);
         dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed

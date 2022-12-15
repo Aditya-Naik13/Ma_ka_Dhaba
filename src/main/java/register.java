@@ -196,8 +196,8 @@ public class register extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
  String Name,UID,Pass,Add;
        Name = jTextField1.getText();
-       UID = jTextField2.getText();
-       Pass = jTextField3.getText();
+       UID = jTextField3.getText();
+       Pass = jTextField2.getText();
        Add = jTextField5.getText();
        if(UID.isEmpty()){
        JOptionPane.showMessageDialog(null, "Please Enter Username");

@@ -8,6 +8,8 @@
  * @author aditya
  */
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class login extends javax.swing.JFrame {
@@ -156,7 +158,7 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
+        jPasswordField1.setEchoChar('*');
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -166,7 +168,30 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      
+      String userName = jTextField1.getText();
+                String password = jPasswordField1.getText();
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+           Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Ma_ka_Dhaba","root","kjpkeyyt#1DBMS");
+
+                    PreparedStatement st = (PreparedStatement) conn.prepareStatement("Select username, password from personal where username=? and password=?");
+
+                    st.setString(1, userName);
+                    st.setString(2, password);
+                    ResultSet rs = st.executeQuery();
+                    if (rs.next()) {
+                        dispose();
+                        hero ah = new hero();
+                        ah.setVisible(true);
+                        JOptionPane.showMessageDialog(jButton1, "You have successfully logged in");
+                    } else {
+                        JOptionPane.showMessageDialog(jButton1, "Wrong Username & Password");
+                    }
+                } catch (SQLException sqlException) {
+                    sqlException.printStackTrace();
+                } catch (ClassNotFoundException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

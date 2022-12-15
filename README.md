@@ -13,4 +13,7 @@ create table personal (
     Vijay chedi
     Chonya Ross
     Muhib randi
-
+    
+    Shukla MKC
+    Naik Radwa
+    Riya Bhikari

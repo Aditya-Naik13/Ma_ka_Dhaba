@@ -216,7 +216,7 @@ public class register extends javax.swing.JFrame {
            Class.forName("com.mysql.jdbc.Driver");
            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Ma_ka_Dhaba","root","kjpkeyyt#1DBMS");
            Statement stmt = conn.createStatement();
-           String sql = "insert into personal (username,name,password,address) values({"+UID+","+Name+","+Pass+","+Add+");";
+           String sql = "insert into personal values('"+UID+"','"+Name+"','"+Pass+"','"+Add+"');";
            stmt.executeUpdate(sql);
        }catch (Exception e){
        JOptionPane.showMessageDialog(null, e);

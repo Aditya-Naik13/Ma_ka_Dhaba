@@ -1,3 +1,12 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,12 +17,15 @@
  * @author aditya
  */
 public class nonveg extends javax.swing.JFrame {
-
+String dish="";
+String cal="";
+int price;
     /**
      * Creates new form nonveg
      */
     public nonveg() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -42,6 +54,11 @@ public class nonveg extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Select");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -54,6 +71,11 @@ public class nonveg extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Select");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
@@ -98,6 +120,11 @@ public class nonveg extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(0, 0, 0));
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Add Roti");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
@@ -110,6 +137,11 @@ public class nonveg extends javax.swing.JFrame {
         jButton6.setBackground(new java.awt.Color(0, 0, 0));
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Add Naan");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 1;
@@ -119,8 +151,12 @@ public class nonveg extends javax.swing.JFrame {
         getContentPane().add(jButton6, gridBagConstraints);
 
         jButton7.setBackground(new java.awt.Color(153, 255, 153));
-        jButton7.setForeground(new java.awt.Color(0, 0, 0));
         jButton7.setText("Cart");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 1;
@@ -133,6 +169,11 @@ public class nonveg extends javax.swing.JFrame {
         jButton8.setBackground(new java.awt.Color(0, 0, 0));
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Select");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -156,12 +197,69 @@ public class nonveg extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+dish=dish+" Tandoori Chicken ";
+cal=cal+" 270 Cal ";
+price=price+300; 
+       JOptionPane.showMessageDialog(null, "Korean Fried Chicken added to cart");        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+dish=dish+" Rice Plate ";
+cal=cal+" 150 Cal ";
+price=price+100;  
+       JOptionPane.showMessageDialog(null, "A serving of Rice has been added to cart");        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+dish=dish+" Korean Fried Chicken ";
+cal=cal+" 500 Cal ";
+price=price+350; 
+       JOptionPane.showMessageDialog(null, "Korean Fried Chicken added to cart");        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+dish=dish+" Butter Chicken ";
+cal=cal+" 400 Cal ";
+price=price+270; 
+       JOptionPane.showMessageDialog(null, "Butter Chicken added to cart");        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+dish=dish+" Honey Garlic Salmon ";
+cal=cal+" 320 Cal ";
+price=price+500; 
+       JOptionPane.showMessageDialog(null, "Honey Garlic Salmon added to cart");        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+dish=dish+" 1 Roti ";
+cal=cal+" 100 Cal ";
+price=price+30;  
+       JOptionPane.showMessageDialog(null, "A portion of Roti has been added to cart");        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+dish=dish+" 1 Naan ";
+cal=cal+" 265 Cal ";
+price=price+60;  
+       JOptionPane.showMessageDialog(null, "A portion of Naan has been added to cart");        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+   try{
+           Class.forName("com.mysql.jdbc.Driver");
+           Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Ma_ka_Dhaba","root","kjpkeyyt#1DBMS");
+           Statement stmt = conn.createStatement();
+           String sql = "update temp set dish='"+dish+"',calories='"+cal+"', price='"+price+"' where uid = 1;";
+           stmt.executeUpdate(sql);
+           bill b=new bill();
+           b.setVisible(true);
+           dispose(); 
+       }
+ catch (ClassNotFoundException | SQLException e){
+       JOptionPane.showMessageDialog(null, e);
+       }
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -14,6 +14,7 @@ public class edit extends javax.swing.JFrame {
      */
     public edit() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

@@ -19,7 +19,9 @@ public class login extends javax.swing.JFrame {
      */
     public login() {
         initComponents();
+        setLocationRelativeTo(null);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -180,10 +182,20 @@ public class login extends javax.swing.JFrame {
                     st.setString(2, password);
                     ResultSet rs = st.executeQuery();
                     if (rs.next()) {
-                        dispose();
+                        
                         hero ah = new hero();
                         ah.setVisible(true);
-                        JOptionPane.showMessageDialog(jButton1, "You have successfully logged in");
+                        dispose();
+                        JOptionPane.showMessageDialog(null, "Successfully Logged In");
+
+                        try{
+           Class.forName("com.mysql.jdbc.Driver");
+           Statement stmt = conn.createStatement();
+           String sql = "insert into temp(uid,uname) values(1,'"+userName+"');";
+           stmt.executeUpdate(sql);
+       }catch (Exception e){
+       JOptionPane.showMessageDialog(null, e);
+       }
                     } else {
                         JOptionPane.showMessageDialog(jButton1, "Wrong Username & Password");
                     }

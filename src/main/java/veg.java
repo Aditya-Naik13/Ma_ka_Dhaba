@@ -1,3 +1,10 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,7 +15,9 @@
  * @author aditya
  */
 public class veg extends javax.swing.JFrame {
-
+String dish="";
+String cal="";
+int price;
     /**
      * Creates new form veg
      */
@@ -183,35 +192,70 @@ public class veg extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+dish=dish+" Sauteed Mushroom ";
+cal=cal+" 270 Cal ";
+price=price+200; 
+       JOptionPane.showMessageDialog(null, "Sauteed Mushroom added to cart");        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+dish=dish+" Spiced Potato ";
+cal=cal+" 150 Cal ";
+price=price+170; 
+       JOptionPane.showMessageDialog(null, "Spiced Patato added to cart");        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+dish=dish+" Strifried Gobi ";
+cal=cal+" 350 Cal ";
+price=price+200;  
+       JOptionPane.showMessageDialog(null, "Stirfried Gobi added to cart");        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+dish=dish+" Rice Plate ";
+cal=cal+" 150 Cal ";
+price=price+100;  
+       JOptionPane.showMessageDialog(null, "A serving of Rice has been added to cart");         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+dish=dish+" 1 Roti ";
+cal=cal+" 100 Cal ";
+price=price+30;  
+       JOptionPane.showMessageDialog(null, "A portion of Roti has been added to cart");                // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+dish=dish+" 1 Naan ";
+cal=cal+" 265 Cal ";
+price=price+60;  
+       JOptionPane.showMessageDialog(null, "A portion of Naan has been added to cart");               // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+ try{
+           Class.forName("com.mysql.jdbc.Driver");
+           Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Ma_ka_Dhaba","root","kjpkeyyt#1DBMS");
+           Statement stmt = conn.createStatement();
+           String sql = "update temp set dish='"+dish+"',calories='"+cal+"', price='"+price+"' where uid = 1;";
+           stmt.executeUpdate(sql);
+           bill b=new bill();
+           b.setVisible(true);
+           dispose(); 
+       }
+ catch (ClassNotFoundException | SQLException e){
+       JOptionPane.showMessageDialog(null, e);
+       }
+ 
+             // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+dish=dish+" Paneer Tikka Masala ";
+cal=cal+" 230 Cal ";
+price=price+270;
+       JOptionPane.showMessageDialog(null, "Paneer Tikka Masasla  added to cart");        // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
     /**

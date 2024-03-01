@@ -9,11 +9,3 @@ create table personal (
     password varchar(255),
     address varchar(500));
     
-    Hi Vijay was here. And Naik fokto
-    Vijay chedi
-    Chonya Ross
-    Muhib randi
-    
-    Shukla MKC
-    Naik Radwa
-    Riya Bhikari
